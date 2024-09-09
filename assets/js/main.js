@@ -238,63 +238,99 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
- // Service details data with more detailed descriptions
- const services = {
+const services = {
   kitchens: {
     title: 'Kitchens',
-    description: 'Our kitchen designs combine functionality with style, creating spaces that are both beautiful and practical. We offer a range of custom cabinetry, modern appliances, and innovative storage solutions tailored to your cooking and dining needs. Our team ensures every kitchen reflects the personality and lifestyle of its owners, whether you prefer a sleek contemporary look or a warm, traditional design.',
+    description: 'Our kitchen designs combine functionality with style, creating spaces that are both beautiful and practical. We offer custom cabinetry, modern appliances, and innovative storage solutions tailored to your needs. Our designs ensure that each kitchen is a perfect blend of aesthetics and functionality, whether you want a contemporary or traditional design.',
     points: [
       'Custom kitchen designs tailored to your style.',
       'High-quality materials and finishes.',
-      'Innovative storage and space-saving solutions.'
-    ]
+      'Innovative storage and space-saving solutions.',
+      'Modern appliances integrated for easy use.',
+      'Personalized layouts to optimize space.'
+    ],
+    image: 'assets/img/kitchens.webp' // Update image paths as needed
   },
   bathrooms: {
     title: 'Bathrooms',
-    description: 'Transform your bathroom into a serene oasis with our bespoke designs. We specialize in creating luxurious spaces that blend functionality and elegance, offering everything from spa-like showers to high-end fixtures and beautiful tiling. Whether you are renovating a master bath or updating a powder room, our designs enhance comfort and elevate your daily routines.',
+    description: 'Transform your bathroom into a serene oasis with our bespoke designs. Whether you want a spa-like bathroom or a simple renovation, we offer high-end fixtures, custom tiling, and modern amenities that ensure a balance of elegance and practicality.',
     points: [
       'Spa-like bathrooms with modern amenities.',
       'High-quality tiles, fixtures, and finishes.',
-      'Customized solutions for all spaces and sizes.'
-    ]
+      'Customized solutions for all spaces and sizes.',
+      'Increased comfort and efficiency.',
+      'Elegant designs with practical solutions.'
+    ],
+    image: 'assets/img/bathroom.webp'
   },
   interiors: {
     title: 'Interiors',
-    description: 'Our interior design services are tailored to enhance every aspect of your living space. We focus on creating harmonious environments that reflect your personal style and meet your needs. From open-plan living areas to cozy corners, we balance aesthetics with practicality to transform your home into a place where you love to live.',
+    description: 'We specialize in creating harmonious interior spaces that reflect your personality and lifestyle. From open-plan living areas to cozy corners, our designs balance beauty with functionality to make your home a welcoming and practical place to live.',
     points: [
       'Personalized interior designs that match your taste.',
       'Space optimization and smart furniture placement.',
-      'Use of modern, sustainable, and timeless materials.'
-    ]
+      'Use of modern, sustainable, and timeless materials.',
+      'Lighting solutions that enhance ambiance.',
+      'Custom décor that adds value to your space.'
+    ],
+    image: 'assets/img/interior.webp'
   },
   newBuilds: {
     title: 'New Builds',
-    description: 'Our new build services guide you from concept to completion, ensuring your dream home is constructed to the highest standards. We manage every aspect of the process, including design, planning, and construction, to deliver a home that suits your vision. With a focus on sustainability, energy efficiency, and cutting-edge building practices, we create homes that stand the test of time.',
+    description: 'Our new build services guide you from concept to completion, ensuring that your dream home is constructed with the highest standards of quality and sustainability. We manage every aspect of the process to deliver a home that meets your vision and needs.',
     points: [
       'Complete project management from start to finish.',
       'Sustainable and energy-efficient building practices.',
-      'High-quality construction standards for a lasting home.'
-    ]
+      'High-quality construction standards for a lasting home.',
+      'Personalized design based on your preferences.',
+      'Attention to every detail to create your ideal home.'
+    ],
+    image: 'assets/img/new builds.webp'
   },
   exteriors: {
     title: 'Exteriors',
-    description: 'Enhance your home’s curb appeal with our exterior design services. From modern facades to beautiful landscaping, we offer a range of solutions to make your property stand out. Our designs focus on creating durable and weather-resistant exteriors that not only look stunning but also improve the overall value of your home.',
+    description: 'Enhance your home’s curb appeal with our exterior design services. We focus on creating exteriors that are not only visually stunning but also durable and weather-resistant. From modern facades to landscaping, we ensure your home makes a lasting impression.',
     points: [
       'Contemporary and classic exterior designs.',
       'Durable finishes that withstand the elements.',
-      'Beautiful landscaping and outdoor living solutions.'
-    ]
+      'Beautiful landscaping and outdoor living solutions.',
+      'High-quality materials for long-lasting beauty.',
+      'Enhanced property value and aesthetic appeal.'
+    ],
+    image: 'assets/img/exterior 2.webp'
   },
   extensions: {
     title: 'Extensions',
-    description: 'Expand your home’s living space with our expertly designed extensions. Whether you need a larger kitchen, an extra bedroom, or a home office, we ensure your extension blends seamlessly with the existing structure. Our designs maximize space, light, and functionality, adding value and comfort to your home.',
+    description: 'Expand your home’s living space with our expertly designed extensions. Whether you need a larger kitchen, an extra bedroom, or a home office, we ensure your extension blends seamlessly with the existing structure, maximizing space and functionality.',
     points: [
       'Seamless integration with your current home design.',
       'Customizable to suit your unique needs.',
-      'Adds significant value and functionality to your property.'
-    ]
+      'Adds significant value and functionality to your property.',
+      'Modern solutions to enhance space and light.',
+      'Extensions that blend aesthetics with practicality.'
+    ],
+    image: 'assets/img/extensions.jpg'
   }
 };
+
+function showService(serviceKey) {
+  const service = services[serviceKey];
+
+  // Update the image, title, description, and points
+  document.querySelector('.services-img').src = service.image;
+  document.querySelector('#service-content h3').innerText = service.title;
+  document.querySelector('#service-content p').innerText = service.description;
+  
+  // Update the key points list
+  const pointsList = document.querySelector('#service-content ul');
+  pointsList.innerHTML = ''; // Clear existing points
+  service.points.forEach(point => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<i class="bi bi-check-circle"></i> ${point}`;
+    pointsList.appendChild(listItem);
+  });
+}
+
 
 // Function to update the service details section
 function showService(serviceKey) {
