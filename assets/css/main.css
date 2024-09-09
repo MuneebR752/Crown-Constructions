@@ -1608,6 +1608,7 @@ section {
   margin: 20px 0;
   color: var(--color-secondary);
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .service-details .services-list a.active {

@@ -271,7 +271,7 @@ const services = {
       'Lighting solutions that enhance ambiance.',
       'Custom décor that adds value to your space.'
     ],
-    image: 'assets/img/interior.webp'
+    image: 'assets/img/interior.jpg'
   },
   newBuilds: {
     title: 'New Builds',
@@ -307,7 +307,7 @@ const services = {
       'Modern solutions to enhance space and light.',
       'Extensions that blend aesthetics with practicality.'
     ],
-    image: 'assets/img/extensions.webp'
+    image: 'assets/img/extensions.jpg'
   }
 };
 
