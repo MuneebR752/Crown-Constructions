@@ -236,8 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
 const services = {
   kitchens: {
     title: 'Kitchens',
@@ -249,7 +247,7 @@ const services = {
       'Modern appliances integrated for easy use.',
       'Personalized layouts to optimize space.'
     ],
-    image: 'assets/img/kitchens.webp' // Update image paths as needed
+    image: 'assets/img/kitchens.webp'
   },
   bathrooms: {
     title: 'Bathrooms',
@@ -297,7 +295,7 @@ const services = {
       'High-quality materials for long-lasting beauty.',
       'Enhanced property value and aesthetic appeal.'
     ],
-    image: 'assets/img/exterior 2.webp'
+    image: 'assets/img/exterior2.webp'
   },
   extensions: {
     title: 'Extensions',
@@ -309,49 +307,42 @@ const services = {
       'Modern solutions to enhance space and light.',
       'Extensions that blend aesthetics with practicality.'
     ],
-    image: 'assets/img/extensions.jpg'
+    image: 'assets/img/extensions.webp'
   }
 };
 
 function showService(serviceKey) {
   const service = services[serviceKey];
 
-  // Update the image, title, description, and points
-  document.querySelector('.services-img').src = service.image;
-  document.querySelector('#service-content h3').innerText = service.title;
-  document.querySelector('#service-content p').innerText = service.description;
-  
-  // Update the key points list
-  const pointsList = document.querySelector('#service-content ul');
-  pointsList.innerHTML = ''; // Clear existing points
+  // Update the service image
+  const serviceImage = document.querySelector('.services-img');
+  serviceImage.src = service.image;
+  serviceImage.alt = service.title;
+
+  // Update the service title
+  const serviceTitle = document.querySelector('#service-content h3');
+  serviceTitle.textContent = service.title;
+
+  // Update the service description
+  const serviceDescription = document.querySelector('#service-content p');
+  serviceDescription.textContent = service.description;
+
+  // Update the service points
+  const servicePoints = document.querySelector('#service-content ul');
+  servicePoints.innerHTML = ''; // Clear current points
   service.points.forEach(point => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `<i class="bi bi-check-circle"></i> ${point}`;
-    pointsList.appendChild(listItem);
+    const li = document.createElement('li');
+    li.innerHTML = `<i class="bi bi-check-circle"></i> ${point}`;
+    servicePoints.appendChild(li);
   });
+
+  // Update active class for the selected service
+  const serviceLinks = document.querySelectorAll('.services-list a');
+  serviceLinks.forEach(link => link.classList.remove('active'));
+  document.querySelector(`a[onclick="showService('${serviceKey}')"]`).classList.add('active');
 }
 
-
-// Function to update the service details section
-function showService(serviceKey) {
-  const service = services[serviceKey];
-  const serviceContent = document.getElementById('service-content');
-
-  serviceContent.innerHTML = `
-    <img src="assets/img/services.jpg" alt="${service.title}" class="img-fluid services-img" />
-    <h3>${service.title}</h3>
-    <p>${service.description}</p>
-    <ul>
-      ${service.points.map(point => `<li><i class="bi bi-check-circle"></i> ${point}</li>`).join('')}
-    </ul>
-  `;
-
-  // Update the active class on the service links
-  document.querySelectorAll('.services-list a').forEach(link => {
-    link.classList.remove('active');
-  });
-  document.querySelector(`.services-list a[onclick="showService('${serviceKey}')"]`).classList.add('active');
-}
-
-// Initialize the first service details on page load
-window.onload = () => showService('kitchens');
+// Ensure Kitchens is shown by default on page load
+document.addEventListener('DOMContentLoaded', () => {
+  showService('kitchens');
+});
