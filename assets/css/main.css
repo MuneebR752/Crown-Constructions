@@ -34,20 +34,6 @@
 # General
 --------------------------------------------------------------*/
 
-/* Default logo size for larger screens */
-.logo-img {
-  width: 400px;
-  height: auto;
-}
-
-/* Media query for screens smaller than 768px (mobile devices) */
-@media (max-width: 768px) {
-  .logo-img {
-    width: 150px;
-    height: auto;
-  }
-}
-
 .hero-des {
   font-size: 16px !important;
 }
@@ -291,8 +277,14 @@ section {
 }
 
 .header .logo img {
-  max-height: 40px;
+  width: 150px;
   margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+  .header .logo img {
+    width: 100px;
+  }
 }
 
 .header .logo h1 {
@@ -1925,6 +1917,15 @@ section {
 @media (max-width: 768px) {
   .hero .info {
     padding: 0 50px;
+    top: 100px;
+  }
+
+  .hero-des {
+    font-size: 14px !important;
+  }
+  
+  .hero-h {
+    font-size: 23px !important;
   }
 }
 
