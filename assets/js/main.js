@@ -346,3 +346,8 @@ function showService(serviceKey) {
 document.addEventListener('DOMContentLoaded', () => {
   showService('kitchens');
 });
+
+
+const lightbox = GLightbox({
+  selector: '.glightbox'
+});
