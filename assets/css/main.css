@@ -48,11 +48,11 @@
   }
 }
 
-.hero-des{
- font-size: 16px !important; 
+.hero-des {
+  font-size: 16px !important;
 }
 
-.hero-h{
+.hero-h {
   font-size: 28px !important;
 }
 
@@ -993,10 +993,7 @@ section {
 
 .projects .portfolio-content .portfolio-info .preview-link,
 .projects .portfolio-content .portfolio-info .details-link {
-  position: absolute;
-  left: calc(50% - 40px);
   font-size: 26px;
-  top: calc(50% - 14px);
   color: #fff;
   transition: 0.3s;
   line-height: 1.2;
