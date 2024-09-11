@@ -247,7 +247,7 @@ const services = {
       'Modern appliances integrated for easy use.',
       'Personalized layouts to optimize space.'
     ],
-    image: 'assets/img/kitchens.webp'
+    image: '/assets/img/kitchens.webp'
   },
   bathrooms: {
     title: 'Bathrooms',
@@ -259,7 +259,7 @@ const services = {
       'Increased comfort and efficiency.',
       'Elegant designs with practical solutions.'
     ],
-    image: 'assets/img/bathroom.webp'
+    image: '/assets/img/bathroom.webp'
   },
   interiors: {
     title: 'Interiors',
@@ -271,7 +271,7 @@ const services = {
       'Lighting solutions that enhance ambiance.',
       'Custom décor that adds value to your space.'
     ],
-    image: 'assets/img/interior.jpg'
+    image: '/assets/img/interior.jpg'
   },
   newBuilds: {
     title: 'New Builds',
@@ -283,7 +283,7 @@ const services = {
       'Personalized design based on your preferences.',
       'Attention to every detail to create your ideal home.'
     ],
-    image: 'assets/img/new builds.webp'
+    image: '/assets/img/new builds.webp'
   },
   exteriors: {
     title: 'Exteriors',
@@ -295,7 +295,7 @@ const services = {
       'High-quality materials for long-lasting beauty.',
       'Enhanced property value and aesthetic appeal.'
     ],
-    image: 'assets/img/exterior2.webp'
+    image: '/assets/img/exterior2.webp'
   },
   extensions: {
     title: 'Extensions',
@@ -307,7 +307,7 @@ const services = {
       'Modern solutions to enhance space and light.',
       'Extensions that blend aesthetics with practicality.'
     ],
-    image: 'assets/img/extensions.jpg'
+    image: '/assets/img/extensions.jpg'
   }
 };
 
