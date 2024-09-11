@@ -143,12 +143,25 @@
               <!-- End Info Item -->
             </div>
             <div class="col-lg-6">
-              <form
-                action="forms/contact.php"
-                method="post"
-                role="form"
-                class="php-email-form"
-              >
+              <form id="form" method="POST" role="form" class="php-email-form">
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="f3b85ee2-2179-4fb6-88a3-d065b2c5884f"
+                />
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  class="hidden"
+                  style="display: none"
+                />
+                <input
+                  type="hidden"
+                  class="form-control"
+                  name="subject"
+                  id="subject"
+                  value="A new Form Submitted on Crown Builder"
+                />
                 <div class="row gy-4">
                   <div class="col-lg-6 form-group">
                     <input
@@ -175,8 +188,8 @@
                   <input
                     type="text"
                     class="form-control"
-                    name="subject"
-                    id="subject"
+                    name="Subject"
+                    id="Subject"
                     placeholder="Subject"
                     required
                   />
@@ -191,14 +204,10 @@
                   ></textarea>
                 </div>
                 <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
-                    Your message has been sent. Thank you!
-                  </div>
+                  <p id="result" class="text-center"></p>
                 </div>
                 <div class="text-center">
-                  <button type="submit">Send Message</button>
+                  <button id="submit-btn" type="submit">Send Message</button>
                 </div>
               </form>
             </div>
@@ -322,6 +331,49 @@
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->
+    <script>
+      const form = document.getElementById("form");
+      const result = document.getElementById("result");
+      const btn = document.getElementById("submit-btn");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait...";
+        btn.disabled = true;
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.innerHTML = "Form submitted successfully";
+              alert("Form submitted successfully");
+            } else {
+              console.log(response);
+              result.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+            alert("Something went wrong!");
+          })
+          .then(function () {
+            btn.disabled = false;
+            form.reset();
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 3000);
+          });
+      });
+    </script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendor/aos/aos.js"></script>
     <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
