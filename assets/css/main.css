@@ -562,8 +562,15 @@ section {
 # Get Started Section
 --------------------------------------------------------------*/
 .get-started .content {
-  padding: 30px 0;
+  box-sizing: content-box;
+  padding: 30px 30px 30px 60px;
+  margin: 0 15px 30px 0;
+  min-height: 200px;
+  box-shadow: 0px 2px 20px rgba(82, 86, 94, 0.1);
+  position: relative;
+  background: #fff;
 }
+
 
 .get-started .content h3 {
   font-size: 36px;
@@ -581,7 +588,7 @@ section {
   width: 60px;
   height: 4px;
   background: var(--color-primary);
-  left: 0;
+  left: 35%;
   bottom: 0;
 }
 
@@ -676,6 +683,15 @@ section {
 }
 
 .get-started .php-email-form button[type="submit"] {
+  background: var(--color-primary);
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.contact-btn {
   background: var(--color-primary);
   border: 0;
   padding: 10px 30px;
@@ -1923,7 +1939,7 @@ section {
   .hero-des {
     font-size: 14px !important;
   }
-  
+
   .hero-h {
     font-size: 23px !important;
   }
